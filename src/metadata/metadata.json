@@ -7,15 +7,15 @@
     "accounts": {
         "domain": "google.com",
         "credentials": [
-            "api_key"
+            "apiKey"
         ]
     },
     "blocks": [{
             "name":"addressToCoordinates",
             "args":[
                 {
-                    "name": "api_key",
-                    "type": "String",
+                    "name": "apiKey",
+                    "type": "credentials",
                     "info": "The API key obtained from Google APIs."
                 },
                 {
@@ -43,8 +43,8 @@
             "name":"getAddressComponents",
             "args":[
                 {
-                    "name": "api_key",
-                    "type": "String",
+                    "name": "apiKey",
+                    "type": "credentials",
                     "info": "The API key obtained from Google APIs."
                 },
                 {
@@ -72,8 +72,8 @@
             "name":"coordinatesToAddress",
             "args":[
                 {
-                    "name": "api_key",
-                    "type": "String",
+                    "name": "apiKey",
+                    "type": "credentials",
                     "info": "The API key obtained from Google APIs."
                 },
                 {

@@ -11,8 +11,8 @@ $app->post('/api/GoogleGeocodingAPI/addressToCoordinates', function ($request, $
     }
     
     $error = [];
-    if(empty($post_data['args']['api_key'])) {
-        $error[] = 'api_key cannot be empty';
+    if(empty($post_data['args']['apiKey'])) {
+        $error[] = 'apiKey cannot be empty';
     }
     if(empty($post_data['args']['address'])) {
         $error[] = 'address cannot be empty';
@@ -25,7 +25,7 @@ $app->post('/api/GoogleGeocodingAPI/addressToCoordinates', function ($request, $
     }
     
     
-    $query['key'] = $post_data['args']['api_key'];
+    $query['key'] = $post_data['args']['apiKey'];
     $query['address'] = $post_data['args']['address'];
     
     $query_str = 'https://maps.googleapis.com/maps/api/geocode/json';

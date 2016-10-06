@@ -4,11 +4,11 @@ namespace Tests\Functional;
 
 class GoogleGeocodingAPITest extends BaseTestCase
 {
-    protected $api_key = 'AIzaSyCu03ZwLyQUscfZ6Rqle1vgoCiTUtmRCEA';
+    protected $apiKey = 'AIzaSyCu03ZwLyQUscfZ6Rqle1vgoCiTUtmRCEA';
     
     public function testAddressMethods() {
         
-        $post_data['args']['api_key'] = $this->api_key;
+        $post_data['args']['apiKey'] = $this->apiKey;
         $post_data['args']['address'] = 'Wall Street, New York';
         
         foreach(['addressToCoordinates', 'getAddressComponents'] as $route) {
@@ -23,7 +23,7 @@ class GoogleGeocodingAPITest extends BaseTestCase
     
     public function testCoordinateMethods() {
         
-        $post_data['args']['api_key'] = $this->api_key;
+        $post_data['args']['apiKey'] = $this->apiKey;
         $post_data['args']['latitude'] = '40.7127837';
         $post_data['args']['longitude'] = '-74.0059413';
         

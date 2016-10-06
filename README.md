@@ -1,7 +1,7 @@
 # GoogleGeocodingAPI Package
 This service involves geocoding static addresses for the purpose of placement of application content on a map.
 * Domain: google.com
-* Credentials: api_key
+* Credentials: apiKey
 
 ## How to get credentials: 
 0. Go to [Google Developers Console](https://console.developers.google.com/?authuser=1);
@@ -21,12 +21,12 @@ Convert a free form address to a set of coordinates (latitude, longitude).
 
 | Field  | Type  | Description
 |--------|-------|----------
-| api_key| String| The API key obtained from Google APIs.
+| apiKey| String| The API key obtained from Google APIs.
 | address| String| The exact address that you want to geocode, in the format used by the respective country's postal service.
 
 #### Request example
 ```json
-{	"api_key": "...",
+{	"apiKey": "...",
 	"address": "..."
 }
 ```
@@ -51,12 +51,12 @@ Convert a free form address string to an object with it's different properties (
 
 | Field  | Type  | Description
 |--------|-------|----------
-| api_key| String| The API key obtained from Google APIs.
+| apiKey| String| The API key obtained from Google APIs.
 | address| String| The exact address that you want to geocode, in the format used by the respective country's postal service.
 
 #### Request example
 ```json
-{	"api_key": "...",
+{	"apiKey": "...",
 	"address": "..."
 }
 ```
@@ -83,13 +83,13 @@ Convert a location's coordinates on the map to an address string.
 
 | Field    | Type  | Description
 |----------|-------|----------
-| api_key  | String| The API key obtained from Google APIs.
+| apiKey  | String| The API key obtained from Google APIs.
 | latitude | String| The latitude find the place
 | longitude| String| The longitude find the place
 
 #### Request example
 ```json
-{	"api_key": "...",
+{	"apiKey": "...",
 	"latitude": "...",
 	"longitude": "..."
 }
