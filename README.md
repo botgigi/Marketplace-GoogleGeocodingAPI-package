@@ -21,7 +21,7 @@ Convert a free form address to a set of coordinates (latitude, longitude).
 
 | Field  | Type  | Description
 |--------|-------|----------
-| apiKey| String| The API key obtained from Google APIs.
+| apiKey| credentials| The API key obtained from Google APIs.
 | address| String| The exact address that you want to geocode, in the format used by the respective country's postal service.
 
 #### Request example
@@ -51,7 +51,7 @@ Convert a free form address string to an object with it's different properties (
 
 | Field  | Type  | Description
 |--------|-------|----------
-| apiKey| String| The API key obtained from Google APIs.
+| apiKey| credentials| The API key obtained from Google APIs.
 | address| String| The exact address that you want to geocode, in the format used by the respective country's postal service.
 
 #### Request example
@@ -83,7 +83,7 @@ Convert a location's coordinates on the map to an address string.
 
 | Field    | Type  | Description
 |----------|-------|----------
-| apiKey  | String| The API key obtained from Google APIs.
+| apiKey  | credentials| The API key obtained from Google APIs.
 | latitude | String| The latitude find the place
 | longitude| String| The longitude find the place
 
