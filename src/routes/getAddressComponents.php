@@ -57,15 +57,15 @@ $app->post('/api/GoogleGeocodingAPI/getAddressComponents', function ($request, $
                 }
                 
                 $result['callback'] = 'success';
-                $result['contextWrites']['to'] = json_encode($out);
+                $result['contextWrites']['to'] = is_array($out) ? $out : json_decode($out);
             } else {
                 $result['callback'] = 'error';
-                $result['contextWrites']['to'] = $responseBody;
+                $result['contextWrites']['to'] = is_array($responseBody) ? $responseBody : json_decode($responseBody);
             }
             
         } else {
             $result['callback'] = 'error';
-            $result['contextWrites']['to'] = $responseBody;
+            $result['contextWrites']['to'] = is_array($responseBody) ? $responseBody : json_decode($responseBody);
         }
 
     } catch (\GuzzleHttp\Exception\ClientException $exception) {
@@ -74,9 +74,19 @@ $app->post('/api/GoogleGeocodingAPI/getAddressComponents', function ($request, $
         $result['callback'] = 'error';
         $result['contextWrites']['to'] = json_decode($responseBody);
 
+    } catch (GuzzleHttp\Exception\ServerException $exception) {
+
+        $responseBody = $exception->getResponse()->getBody(true);
+        $result['callback'] = 'error';
+        $result['contextWrites']['to'] = json_decode($responseBody);
+
+    } catch (GuzzleHttp\Exception\BadResponseException $exception) {
+
+        $responseBody = $exception->getResponse()->getBody(true);
+        $result['callback'] = 'error';
+        $result['contextWrites']['to'] = json_decode($responseBody);
+
     }
-    
-    
 
     return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
 });

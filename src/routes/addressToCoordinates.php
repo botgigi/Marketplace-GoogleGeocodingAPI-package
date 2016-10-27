@@ -43,22 +43,20 @@ $app->post('/api/GoogleGeocodingAPI/addressToCoordinates', function ($request, $
         $res = json_decode($responseBody);
         
         if(!empty($res) && $code == '200') {
-            
             if($res->status == 'ZERO_RESULTS') {
                 $result['callback'] = 'addressNotFound';
                 $result['contextWrites']['to'] = 'Address not found';
             } elseif($res->status == 'OK') {
                 $out = $res->results[0]->geometry->location;
                 $result['callback'] = 'success';
-                $result['contextWrites']['to'] = json_encode($out);
+                $result['contextWrites']['to'] = $out;
             } else {
                 $result['callback'] = 'error';
-                $result['contextWrites']['to'] = $responseBody;
+                $result['contextWrites']['to'] = is_array($responseBody) ? $responseBody : json_decode($responseBody);
             }
-            
         } else {
             $result['callback'] = 'error';
-            $result['contextWrites']['to'] = $responseBody;
+            $result['contextWrites']['to'] = is_array($responseBody) ? $responseBody : json_decode($responseBody);
         }
 
     } catch (\GuzzleHttp\Exception\ClientException $exception) {
@@ -67,9 +65,19 @@ $app->post('/api/GoogleGeocodingAPI/addressToCoordinates', function ($request, $
         $result['callback'] = 'error';
         $result['contextWrites']['to'] = json_decode($responseBody);
 
+    } catch (GuzzleHttp\Exception\ServerException $exception) {
+
+        $responseBody = $exception->getResponse()->getBody(true);
+        $result['callback'] = 'error';
+        $result['contextWrites']['to'] = json_decode($responseBody);
+
+    } catch (GuzzleHttp\Exception\BadResponseException $exception) {
+
+        $responseBody = $exception->getResponse()->getBody(true);
+        $result['callback'] = 'error';
+        $result['contextWrites']['to'] = json_decode($responseBody);
+
     }
-    
-    
 
     return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
 });
