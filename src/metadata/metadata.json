@@ -1,6 +1,6 @@
 {
     "package": "GoogleGeocodingAPI",
-    "tagline": "Google MAps Geocoding API Wrapper",
+    "tagline": "Google Maps Geocoding API",
     "description": "This service involves geocoding static addresses for the purpose of placement of application content on a map.",
     "image": "https://www.gstatic.com/images/branding/product/1x/maps_64dp.png",
     "repo": "https://github.com/RapidSoftwareSolutions/Marketplace-GoogleGeocodingAPI-package",
