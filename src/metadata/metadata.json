@@ -31,7 +31,7 @@
                 },
                 {
                     "name":"success",
-                    "info": "Success => channels: Array <string>"
+                    "info": "Success"
                 },
                 {
                     "name":"addressNotFound",
@@ -60,7 +60,7 @@
                 },
                 {
                     "name":"success",
-                    "info": "Success => channels: Array <string>"
+                    "info": "Success"
                 },
                 {
                     "name":"addressNotFound",
@@ -94,7 +94,7 @@
                 },
                 {
                     "name":"success",
-                    "info": "Success => channels: Array <string>"
+                    "info": "Success"
                 }
             ]
         }
