@@ -1,9 +1,10 @@
 {
     "package": "GoogleGeocodingAPI",
     "tagline": "Google Maps Geocoding API",
-    "description": "This service involves geocoding static addresses for the purpose of placement of application content on a map.",
-    "image": "https://www.gstatic.com/images/branding/product/1x/maps_64dp.png",
+    "description": "Geocode and reverse geocode any address or region.",
+    "image": "http://logo.clearbit.com/google.com",
     "repo": "https://github.com/RapidSoftwareSolutions/Marketplace-GoogleGeocodingAPI-package",
+    "keywords": ["address", "coordinates", "geo", "geo-target", "geo-targeted", "geocode", "geocoding", "geography", "locate", "location", "map", "mapping", "region"],
     "accounts": {
         "domain": "google.com",
         "credentials": [
@@ -12,16 +13,19 @@
     },
     "blocks": [{
             "name":"addressToCoordinates",
+            "description": "Convert a free form address to a set of coordinates (latitude, longitude).",
             "args":[
                 {
                     "name": "apiKey",
                     "type": "credentials",
-                    "info": "The API key obtained from Google APIs."
+                    "info": "The API key obtained from Google APIs.",
+                    "required": true
                 },
                 {
                     "name": "address",
                     "type": "String",
-                    "info": "The exact address that you want to geocode, in the format used by the respective country's postal service."
+                    "info": "The exact address that you want to geocode, in the format used by the respective country's postal service.",
+                    "required": true
                 }
             ],
             "callbacks":[
@@ -41,16 +45,19 @@
         },
         {
             "name":"getAddressComponents",
+            "description": "Convert a free form address string to an object with it's different properties (street number, route, country, etc...).",
             "args":[
                 {
                     "name": "apiKey",
                     "type": "credentials",
-                    "info": "The API key obtained from Google APIs."
+                    "info": "The API key obtained from Google APIs.",
+                    "required": true
                 },
                 {
                     "name": "address",
                     "type": "String",
-                    "info": "The exact address that you want to geocode, in the format used by the respective country's postal service."
+                    "info": "The exact address that you want to geocode, in the format used by the respective country's postal service.",
+                    "required": true
                 }
             ],
             "callbacks":[
@@ -70,21 +77,25 @@
         },
         {
             "name":"coordinatesToAddress",
+            "description": "Convert a location's coordinates on the map to an address string.",
             "args":[
                 {
                     "name": "apiKey",
                     "type": "credentials",
-                    "info": "The API key obtained from Google APIs."
+                    "info": "The API key obtained from Google APIs.",
+                    "required": true
                 },
                 {
                     "name": "latitude",
                     "type": "String",
-                    "info": "The latitude find the place"
+                    "info": "The latitude find the place",
+                    "required": true
                 },
                 {
                     "name": "longitude",
                     "type": "String",
-                    "info": "The longitude find the place"
+                    "info": "The longitude find the place",
+                    "required": true
                 }
             ],
             "callbacks":[
